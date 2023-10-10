@@ -34,4 +34,4 @@ jobs:
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:
-          github_token: ${{ secrets.tokenyass }}
+          github_token: ${{ secrets.YASS_TOKEN }}
