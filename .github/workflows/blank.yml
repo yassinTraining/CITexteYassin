@@ -42,3 +42,20 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+          jobs:
+            build:
+              runs-on: ubuntu-latest
+              steps:
+              - uses: actions/checkout@master
+                with:
+                  persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your
+              personal token
+                  fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
+              - uses: vimtor/action-zip@v1
+                with:
+                  files: nom des fihciers du zip
+                  dest: nom de votre archive.zip
+                - name: Commit & Push changes
+                    uses: actions-js/push@master
+                    with:
+                      github_token: ${{ secrets.TOKEN }}
